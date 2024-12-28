@@ -1,43 +1,32 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./Home.css";
 import { CoinContext } from "../../context/CoinContext";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { coins, loading } = useContext(CoinContext); // Podaci iz konteksta
   const [input, setInput] = useState(""); // Stanje za unos u pretrazi
   const [filteredCoins, setFilteredCoins] = useState([]); // Stanje za filtrirane kriptovalute
-  const [initialCoins, setInitialCoins] = useState([]); // Stanje za prvih 10 kriptovaluta
 
-  // Postavljanje prvih 10 kriptovaluta prilikom učitavanja stranice
+  // Ažuriranje filtriranih kriptovaluta na osnovu unosa
   useEffect(() => {
-    if (coins.length > 0) {
-      setInitialCoins(coins.slice(0, 10)); // Uzmi prvih 10 kriptovaluta
-      setFilteredCoins(coins.slice(0, 10)); // Prikaz istih kao pocetne
+    if (input.trim() === "") {
+      // Ako je unos prazan, vrati prvih 15 coina
+      setFilteredCoins(coins.slice(0, 15));
+    } else {
+      // Filtriraj na osnovu unosa
+      const results = coins.filter((coin) =>
+        coin.name.toLowerCase().includes(input.toLowerCase())
+      );
+      setFilteredCoins(results);
     }
-  }, [coins]);
+  }, [input, coins]); 
 
   const inputHandler = (event) => {
     setInput(event.target.value); // Azuriranje unosa
   };
 
-  const searchHandler = (event) => {
-    event.preventDefault(); // Spreci ponovno ucitavanje stranice
-
-    if (input.trim() === "") {
-      // Ako je unos prazan, vrati pocetak
-      setFilteredCoins(initialCoins);
-      return;
-    }
-
-    // Filtriraj  na osnovu unosa
-    const results = coins.filter((coin) =>
-      coin.name.toLowerCase().includes(input.toLowerCase())
-    );
-
-    setFilteredCoins(results); // Ažuriraj filtrirane rezultate
-  };
-
-  // Prikaz poruke dok se učitavaju podaci
+  // Prikaz poruke dok se ucitavaju podaci
   if (loading) return <p>...Loading</p>;
 
   return (
@@ -49,15 +38,13 @@ const Home = () => {
           world.
         </p>
         {/* Search Bar */}
-        <form onSubmit={searchHandler}>
+        <form onSubmit={(e) => e.preventDefault()}>
           <input
             onChange={inputHandler}
             value={input}
             type="text"
             placeholder="Search crypto.."
-            required
           />
-          <button type="submit">Search</button>
         </form>
       </div>
       <div className="Crypto-table">
@@ -71,7 +58,7 @@ const Home = () => {
         {/* Prikazivanje filtriranih kriptovaluta */}
         {filteredCoins.length > 0 ? (
           filteredCoins.map((coin, index) => (
-            <div className="Crypto-layout" key={coin.uuid}>
+            <Link to={`/coin/${coin.uuid}`}  className="Crypto-layout" key={coin.uuid}>
               <p>{index + 1}</p>
               <p>
                 <img
@@ -93,7 +80,7 @@ const Home = () => {
               <p className="Market-Cap">
                 ${(coin.marketCap / 1e9).toFixed(2)}B
               </p>
-            </div>
+            </Link>
           ))
         ) : (
           <p>No coins match your search.</p>

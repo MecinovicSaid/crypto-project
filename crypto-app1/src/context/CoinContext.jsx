@@ -5,6 +5,10 @@ export const CoinContext = createContext();
 const CoinProvider = ({ children }) => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currency,setCurrency] = useState ({
+    name:'usd',
+    symbol:'$'
+  })
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -16,6 +20,7 @@ const CoinProvider = ({ children }) => {
             "X-RapidAPI-Host": "coinranking1.p.rapidapi.com"
           }
         });
+        
         const data = await response.json();
         // Postavljanje samo prvih 10 coina
         setCoins(data.data.coins.slice(0, 15));

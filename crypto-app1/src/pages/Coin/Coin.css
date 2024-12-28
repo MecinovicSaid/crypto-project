@@ -1,0 +1,187 @@
+.coin-header {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Razmak između slike i teksta */
+  }
+  
+  .coin-icon {
+    width: 50px; /* Širina slike */
+    height: 50px; /* Visina slike */
+    object-fit: contain; /* Osigurava da slika ostane u proporciji */
+    border-radius: 50%; /* Zaokružuje sliku (opcionalno, za kružni izgled) */
+  }
+  .coin {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .coin-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .coin-header h1 {
+    margin-left: 15px;
+    font-size: 2rem;
+  }
+  
+  .coin-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .coin-details {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .coin-details p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .coin-details p span {
+    font-weight: bold;
+  }
+  
+  .coin-description {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .coin-description h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .coin-description p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Graph styles */
+  .chart-container {
+    margin-top: 40px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  body {
+    background: linear-gradient(to right, #000000, #8b0000); /* tamni gradijent */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .coin {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .coin-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 20px;
+  }
+  
+  .coin-header h1 {
+    margin-left: 15px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .coin-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  
+  .coin-details {
+    background-color: #222;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .coin-details p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .coin-details p span {
+    font-weight: bold;
+    color: #f39c12; /* Zlatna boja za važne informacije */
+  }
+  
+  .coin-description {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .coin-description h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #f39c12;
+  }
+  
+  .coin-description p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .chart-container {
+    margin-top: 40px;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .chart-container h2 {
+    font-size: 1.8rem;
+    color: #f39c12;
+    margin-bottom: 20px;
+  }
+  
+  /* Hover efekat za kartice */
+  .coin-details p:hover, .coin-description h2:hover {
+    color: #f39c12;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  /* Dodavanje animacija za tekst */
+  .coin-header h1, .coin-details p, .coin-description p {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+    

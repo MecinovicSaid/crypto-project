@@ -5,12 +5,13 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Outfit", serif;
+    
 }
 a{
     text-decoration: none;
 }
 .app{
     min-height: 100vh;
-    color: white;
-    background: linear-gradient(#0b004e,#1d152f,#002834);
+    color: #dcdcdc;
+    background: linear-gradient(to right, #000000, #8b0000);
 }
